@@ -8,5 +8,9 @@ class Pub {
         $this->tables = $tables;
     }
 
-    public function checkReservation(){} 
+    public function checkReservation(string $name, int $qty): bool {
+        var_dump($name);
+        var_dump($qty);
+        return false;
+    } 
 }

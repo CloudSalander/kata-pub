@@ -13,7 +13,8 @@ class Client {
 
     public function reserve(Pub $pub) {
         $reserveName = $this->getReservationName();
-        $peopleNuber = $this->getPeopleNumber();
+        $peopleNumber = $this->getPeopleNumber();
+        $pub->checkReservation($reserveName, $peopleNumber);
     }
 
     private function getReservationName(): string {
