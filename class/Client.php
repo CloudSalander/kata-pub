@@ -3,7 +3,7 @@
 class Client {
 
     const RESERVATION_NAME_MSG = "Name or reservation?";
-    const PEOPLE_AMOUNT_MSG = "How many people?";
+    const PEOPLE_AMOUNT_MSG = "How many people?(Please, number greater or equal than 1";
 
     private string $name;
 
@@ -24,9 +24,11 @@ class Client {
     }
 
     private function getPeopleNumber(): int {
-        return intval(readline(self::PEOPLE_AMOUNT_MSG));
+        $number = 0;
+        do {
+            $number = intval(readline(self::PEOPLE_AMOUNT_MSG));
+        }while($number < 1);
+        return $number;
     }
-
-
 }
 
