@@ -15,6 +15,7 @@ $tables = [$table1,$table2,$table3,$table4];
 $client = new Client("Pepe");
 $pub = new Pub($tables);
 $client->reserve($pub);
+$client->reserve($pub);
 
 
 
