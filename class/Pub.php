@@ -4,16 +4,18 @@
 class Pub {
 
     private array $tables;
+    private array $reservations;
     
     public function __construct($tables) {
         $this->tables = $tables;
+        $this->reservations = [];
     }
 
     public function checkReservation(string $name, int $qty): bool {
         $tableId = $this->checkTables($qty);
-        var_dump($tableId);
         if($tableId > 0) {
-            //$this->reserveTable($tableId);
+            $this->reservations[] = ["id" => $tableId, "name" => $name];
+            return true;
         }
         return false;
     } 

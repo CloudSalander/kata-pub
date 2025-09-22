@@ -2,8 +2,9 @@
 
 class Client {
 
-    const RESERVATION_NAME_MSG = "Name or reservation?";
-    const PEOPLE_AMOUNT_MSG = "How many people?(Please, number greater or equal than 1";
+    const RESERVATION_NAME_MSG = "Name or reservation?".PHP_EOL;
+    const PEOPLE_AMOUNT_MSG = "How many people?(Please, number greater or equal than 1".PHP_EOL;
+    const BUSY_PUB_MSG = "Sorry, we're full!".PHP_EOL;
 
     private string $name;
 
@@ -14,7 +15,7 @@ class Client {
     public function reserve(Pub $pub) {
         $reserveName = $this->getReservationName();
         $peopleNumber = $this->getPeopleNumber();
-        $pub->checkReservation($reserveName, $peopleNumber);
+        if(!$pub->checkReservation($reserveName, $peopleNumber)) echo self::BUSY_PUB_MSG;
     }
 
     private function getReservationName(): string {
